@@ -28,13 +28,30 @@
             h1.appendChild(texte);
             document.body.appendChild(h1);
         }
+        function creationTable(nbColonne){
+            let table = document.createElement("table");
+            document.body.appendChild(table);
+            let thead = document.createElement("thead");
+            document.table.appendChild(thead);
+            let tr = document.createElement("tr");
+            document.thead.appendChild(tr);
+            for(let i=0;i<nbColonne;i++){
+                let th = document.createElement("th");
+                document.tr.appendChild(th);
+            }
+            let tbody = document.createElement("tbody");
+            document.table.appendChild(tbody);
+            
+        }
+    </script>
+</head>
+<body>
+    <script>
         let nomPolluant = data.polluant;
         let unite = data.unite;
         let annee = data.annee;
         creationH1(nomPolluant,unite,annee);
-        
+        creationTable(3);
     </script>
-</head>
-<body>
 </body>
 </html>

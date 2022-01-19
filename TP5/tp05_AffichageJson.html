@@ -26,20 +26,27 @@
             let h1 = document.createElement("h1");
             let texte = document.createTextNode(titre);
             h1.appendChild(texte);
-            document.body.appendChild(h1);
+            document.getElementById("contenu").appendChild(h1);
         }
         function creationH2(sousTitre){
             let h2 = document.createElement("h2");
             let texte = document.createTextNode(sousTitre);
             h2.appendChild(texte);
-            document.body.appendChild(h2);
+            document.getElementById("contenu").appendChild(h2);
         }
         function creationSpan(nom,val,pourcentage){
             let span = document.createElement("span");
-            let texte = document.createTextNode(nom + " / " + val + " / " + pourcentage);
+            let texte = document.createTextNode(nom + " / " + val + " / " + pourcentage + "%");
             span.appendChild(texte);
-            document.body.appendChild(span);
+            document.getElementById("contenu").appendChild(span);
+            let br = document.createElement("br");
+            document.getElementById("contenu").appendChild(br);
         }
+        
+    </script>
+</head>
+<body id="contenu">
+    <script>
         let nomPolluant = "Nom du polluant : " + data.polluant;
         creationH1(nomPolluant);
         let uniteAnnee = "" + data.unite + " - " + data.annee;
@@ -51,9 +58,6 @@
             let pourcent = data.pays[i].pourcentage;
             creationSpan(nomPays,valeur,pourcent);
         }
-        
     </script>
-</head>
-<body>
 </body>
 </html>
