@@ -1,6 +1,9 @@
 let societe = {
     "nom" : "Google",
-    "siegeSocial" : "Googleplex, Mountain View, California, United States",
+    "siegeSocial" : "Googleplex", 
+    "ville" : "Mountain View", 
+    "etat" : "California", 
+    "pays" : "United States",
     "fondateur" : [
         {"nom" : "Larry Page","dateNaissance" : "26/03/1973", "villeNaissance" : "East Lansing, Michigan"},
         {"nom" : "Sergey Brin","dateNaissance" : "21/08/1973", "villeNaissance" : "Moscou, Union Soviétique"}
