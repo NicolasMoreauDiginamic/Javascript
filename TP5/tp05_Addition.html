@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="https://ajax.googleapis.com/ libs jquery /3.5.1/jquery.min.js"></script>
+    <script src ="ressources/jquery.min.js"></script>
+    <title>Addition</title>
+    <script>
+        function Addition(){
+            let bool = true;
+            let input1 = document.querySelector("#a").value;
+            let value1 = parseInt(input1);
+            let input2 = document.querySelector("#b").value;
+            let value2 = parseInt(input2);
+            if(isNaN(value1) || isNaN(value2)){
+                bool = false;
+            }
+            if(bool == false){
+                window.alert("Vous devez saisir un nombre");
+            }else{
+                let result = document.querySelector("#resultat");
+                result.innerHTML = value1 + value2;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>TP5 - Addition</h1>
+    Nombre 1 : <input type="text" value="" id="a"><br><br>
+    Nombre 2 : <input type="text" value="" id="b"><br><br>
+    <button type="button" onclick="Addition()">Additionner</button><br><br>
+    <section id="resultat">0</section>
+</body>
+</html>

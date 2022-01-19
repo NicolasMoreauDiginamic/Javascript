@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="https://ajax.googleapis.com/ libs jquery /3.5.1/jquery.min.js"></script>
+    <script src ="ressources/jquery.min.js"></script>
+    <title>Controle Formulaire</title>
+    <script>
+        function verifSaisie(){
+            let bool = true;
+            let nom = document.querySelector("#nom").value;
+            let prenom = document.querySelector("#prenom").value;
+            let dateNaiss = document.querySelector("#dateNaissance").value;
+            if(nom == ""){
+                bool = false;
+                window.alert("Le nom doit être renseigné");
+            }
+            if(prenom == ""){
+                bool = false;
+                window.alert("Le prénom doit être renseigné");
+            }
+            if(dateNaiss == ""){
+                bool = false;
+                window.alert("La date de naissance doit être renseignée");
+            }
+            if(bool == true){
+                window.confirm("Vos données ont été enregistrées");
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>TP5 - Controle Formulaire</h1>
+    <h2>Formulaire :</h2>
+    <form action="">
+        Nom : <input type="text" id="nom"><br><br>
+        Prénom : <input type="test" id="prenom"><br><br>
+        Date de Naissance : <input type="date" id="dateNaissance"><br><br>
+        <button type="button" onclick="verifSaisie()">Valider</button><br><br>
+    </form>
+    
+</body>
+</html>

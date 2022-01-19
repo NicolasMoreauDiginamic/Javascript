@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="https://ajax.googleapis.com/ libs jquery /3.5.1/jquery.min.js"></script>
+    <script src ="ressources/jquery.min.js"></script>
+    <title>Operation</title>
+    <script>
+        function Operation(){
+            let bool = true;
+            let value1 = parseInt(document.querySelector("#a").value);
+            let value2 = parseInt(document.querySelector("#b").value);
+            let ope = document.querySelector("#operateur");
+            let result = document.querySelector("#resultat");
+            if(isNaN(value1) || isNaN(value2)){
+                bool = false;
+            }
+            if(bool == false){
+                window.alert("Vous devez saisir un nombre");
+            }else{
+                switch(ope.value){
+                case ("+") :
+                    let ad = value1 + value2;
+                    result.innerHTML = "Le résultat de l'addition est " + ad;
+                    break;
+                case ("-") :
+                    let soust = value1 - value2;
+                    result.innerHTML = "Le résultat de la soutraction est " + soust ;
+                    break;
+                case ("*") :
+                    let mult = value1 * value2;
+                    result.innerHTML = "Le résultat de la multiplication est " + mult;
+                    break;
+                case ("/") :
+                    if(value1 == 0 || value2 == 0){
+                        window.alert("Division par 0 impossible!!!!");
+                        result.innerHTML = 0
+                    }else{
+                        let div = value1 / value2;
+                        result.innerHTML = "Le résultat de la division est " + div;
+                    }
+                    break;
+                }
+            }
+            
+    </script>
+</head>
+<body>
+    <h1>TP5 - Operation</h1>
+    Nombre 1 : <input type="text" id="a"><br><br>
+    Nombre 2 : <input type="test" id="b">
+    <label></br></br>Opérateur : </label>
+            <select id="operateur">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select></br></br>
+    <button type="button" onclick="Operation()">Resultat</button><br><br>
+    <section id="resultat">0</section>
+</body>
+</html>
