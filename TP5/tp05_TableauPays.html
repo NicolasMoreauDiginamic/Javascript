@@ -28,30 +28,60 @@
             h1.appendChild(texte);
             document.body.appendChild(h1);
         }
-        function creationTable(nbColonne){
-            let table = document.createElement("table");
-            document.body.appendChild(table);
-            let thead = document.createElement("thead");
-            document.table.appendChild(thead);
+        function creationLigne(codePays,nom,val,pourcent){
             let tr = document.createElement("tr");
-            document.thead.appendChild(tr);
-            for(let i=0;i<nbColonne;i++){
-                let th = document.createElement("th");
-                document.tr.appendChild(th);
-            }
-            let tbody = document.createElement("tbody");
-            document.table.appendChild(tbody);
-            
+            document.getElementById("#ligne").appendChild(tr);
+
+            let tdCode = document.createElement("td");
+            document.tr.appendChild(tdCode);
+            let image = document.createElement("img");
+            img.src = "https://flagcdn.com/32x24/"+codePays+".png";
+            document.td.appendChild(image);
+
+            let nomPays = document.createElement("td");
+            let texteNom = document.createTextNode(nom);
+            nomPays.appendChild(texteNom);
+            document.tr.appendChild(nomPays);
+
+            let valeurCo2 = document.createElement("td");
+            let texteVal = document.createTextNode(val);
+            valeurCo2.appendChild(texteVal);
+            document.tr.appendChild(valeurCo2);
+
+            let pourcentCo2 = document.createElement("td");
+            let textePourcent = document.createTextNode(pourcent);
+            pourcentCo2.appendChild(textePourcent);
+            document.tr.appendChild(pourcentCo2); 
         }
     </script>
 </head>
 <body>
+    <table>
+        <thead>
+            <tr id="ligne">
+                <th>#</th>
+                <th>Nom</th>
+                <th>Valeur</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
     <script>
         let nomPolluant = data.polluant;
         let unite = data.unite;
         let annee = data.annee;
         creationH1(nomPolluant,unite,annee);
-        creationTable(3);
+        
+        for(let i=0; i< data.pays.length;i++){
+            let drapeau = data.pays[i].code;
+            let nomPays = data.pays[i].nom;
+            let valeur = data.pays[i].valeur;
+            let pourcentage = data.pays[i].pourcentage;
+            creationLigne(drapeau,nomPays,valeur,pourcentage);
+        }
     </script>
 </body>
 </html>
