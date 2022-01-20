@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation Utilisateur</title>
+    <script>
+        function valider(){
+            let objet = {};
+            objet.nom = document.querySelector("#nom").value;
+            objet.prenom = document.querySelector("#prenom").value;
+            objet.dateNaissance = document.querySelector("#dateNaissance").value;
+            objet.departementNaissance = document.querySelector("#departementNaissance").value;
+            objet.lieuNaissance = document.querySelector("#lieuNaissance").value;
+            objet.numeroRue = document.querySelector("#numeroRue").value;
+            objet.libelleRue = document.querySelector("#libelleRue").value;
+            objet.codePostal = document.querySelector("#codePostal").value;
+            objet.ville = document.querySelector("#ville").value;
+
+            fetch('https://digicode.cleverapps.io/utilisateurs', 
+                {   method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(objet)
+                }
+            ).then(response=>response.text().then(text=>console.log(text)));
+        }
+
+    </script>
+</head>
+<body>
+    <form name="creation">
+        Nom : <input type="text" name="nom" id="nom"><br>
+        Prénom : <input type="text" name="prenom" id="prenom"><br>
+        Date de naissance : <input type="date" name="dateNaissance" id="dateNaissance"><br>
+        Département de naissance : <input type="number" name="departementNaissance" id="departementNaissance"><br>
+        Lieu de naissance : <input type="text" name="lieuNaissance" id="lieuNaissance"><br>
+        Numéro de rue :  <input type="number" name="numeroRue" id="numeroRue"><br>
+        Nom de rue : <input type="text" name="libelleRue" id="libelleRue"><br>
+        Code Postal : <input type="number" name="codePostal" id="codePostal"><br>
+        Ville : <input type="text" name="ville" id="ville"><br>
+
+        <input type="button" value="Valider" onclick="valider()">
+
+    </form>
+   
+</body>
+</html>
